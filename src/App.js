@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import Countdown from './components/Countdown';
+import Header from './components/Header';
 
 function App() {
+  const[bgColor,setBgColor]=useState('bg-[#D95550]')
+  const[countDownColor,setCountDownColor] =useState('bg-[#DD6662]')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className={`${bgColor}`}>
+      <Header countDownColor={countDownColor} />
+      <Countdown bgColor={bgColor} countDownColor={countDownColor} setCountDownColor={setCountDownColor} setBgColor={setBgColor}/>
+      </div>
     </div>
+        
   );
 }
 
